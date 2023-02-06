@@ -1,0 +1,9 @@
+<div class="products-container">
+  <app-products-overview
+    [items]="filteredProducts!"
+    [itemInfo]="productInfo"
+    [isShoppingCart]="isShoppingCart"
+    (emitAction)="callAction($event)"
+    (emitGetInfo)="emitGetProductInfo.emit($event)"
+  ></app-products-overview>
+</div>

@@ -1,0 +1,28 @@
+<mat-card class="auth-form">
+  <mat-card-header>
+    <mat-card-title>{{formTitle}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="auth-form-fields-container">
+    <form [formGroup]="authFormGroup">
+      <mat-form-field class="auth-form-field" *ngFor="let field of formFields">
+        <mat-label>{{field.label}}</mat-label>
+        <input [type]="field.type"
+               matInput
+               [formControl]="field.formControl"
+               [placeholder]="field.placeholder">
+        <mat-error *ngIf="field.formControl.hasError('required')">
+          {{field.label}} is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngFor="let actionButton of actionButtons"
+            mat-raised-button
+            color="primary"
+            class="action-button"
+            [disabled]="actionButton.isSubmit && authFormGroup.invalid"
+            (click)="actionButton.handler(authFormGroup)"
+    >{{actionButton.label}}</button>
+  </mat-card-actions>
+</mat-card>

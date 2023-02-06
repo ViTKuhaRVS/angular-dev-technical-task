@@ -1,0 +1,7 @@
+{
+  "/users*": "/600/users$1",
+  "/product/list*": "/664/products$1",
+  "/product/info*": "/664/productInfos$1",
+  "/goods/list*": "/600/goods$1",
+  "/goods/add*": "/660/goods$1"
+}

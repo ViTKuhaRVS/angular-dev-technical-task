@@ -1,0 +1,24 @@
+.auth-form {
+  width: 450px;
+  height: fit-content;
+
+  .auth-form-fields-container {
+    display: flex;
+
+    form {
+      margin: 20px auto;
+
+      .auth-form-field {
+        width: 100%;
+
+        ::ng-deep .mat-mdc-text-field-wrapper {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .action-button {
+    margin-right: 8px;
+  }
+}

@@ -1,0 +1,10 @@
+.signup-form-container {
+  width: 100%;
+
+  app-auth-form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

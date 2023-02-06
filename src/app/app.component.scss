@@ -1,0 +1,51 @@
+:host::ng-deep {
+  .app-toolbar {
+    position: fixed;
+    top: 0;
+    min-width: 1400px;
+
+    .nav-item-wrapper {
+      width: fit-content;
+      margin-right: 15px;
+      font-size: 16px;
+
+      .nav-item-icon {
+        margin-right: 5px;
+      }
+
+      .nav-item-label {
+        vertical-align: text-bottom;
+      }
+
+      &:hover {
+        border-radius: 15%;
+
+        .mat-mdc-button-persistent-ripple {
+          border-radius: 15%;
+        }
+      }
+    }
+
+    .simple-label {
+      vertical-align: bottom;
+      margin-right: 10px;
+    }
+
+    .button-nav-item {
+      font-size: 18px;
+      vertical-align: text-top;
+      padding-top: 6px;
+    }
+
+    .example-spacer {
+      flex: 1 1 auto;
+    }
+  }
+
+  .app-component {
+    margin-top: 64px;
+    height: calc(100% - 64px);
+    overflow: auto;
+    min-width: 900px;
+  }
+}

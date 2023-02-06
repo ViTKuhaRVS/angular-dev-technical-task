@@ -1,0 +1,33 @@
+<mat-toolbar class="app-toolbar" color="primary">
+  <span>Online Shop</span>
+  <span class="example-spacer"></span>
+  <a class="nav-item-wrapper"
+     *ngFor="let navItem of navigationItems" [routerLink]="navItem.routerLink"
+     routerLinkActive="activebutton"
+     mat-icon-button
+  >
+    <mat-icon class="nav-item-icon">{{navItem.icon}}</mat-icon>
+    <span class="nav-item-label">{{navItem.label}}</span>
+  </a>
+  <div *ngIf="!(userName$ | async)">
+    <a class="nav-item-wrapper"
+       *ngFor="let navItem of actionItems" [routerLink]="navItem.routerLink"
+       routerLinkActive="activebutton"
+       mat-icon-button>
+      <mat-icon class="nav-item-icon">{{navItem.icon}}</mat-icon>
+      <span class="nav-item-label">{{navItem.label}}</span>
+    </a>
+  </div>
+  <div *ngIf="userName$ | async">
+    <span class="nav-item-label simple-label">{{userName$ | async}}</span>
+    <button mat-button
+            class="simple-label"
+            (click)="logout()">
+      <mat-icon class="button-nav-item">logout</mat-icon>
+      <span class="button-nav-item">Exit</span>
+    </button>
+  </div>
+</mat-toolbar>
+<div class="app-component">
+  <router-outlet></router-outlet>
+</div>
