@@ -1,0 +1,21 @@
+<app-filter [types]="types" (confirmFilter)="filterItems($event)"></app-filter>
+<mat-drawer-container class="products-overview-container" autosize>
+  <div class="products-overview-content">
+    <mat-grid-list cols="3" rowHeight="540px">
+      <mat-grid-tile *ngFor="let item of filteredItems" (click)="emitGetInfo.emit(item.id)">
+        <app-product-card [product]="item"
+                          [isShoppingCart]="isShoppingCart"
+                          (emitAction)="emitAction.emit($event)"
+        ></app-product-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <mat-drawer #drawer
+              class="app-sidenav"
+              mode="side"
+              position="end">
+    <p>{{itemInfo.title}}</p>
+    <img mat-card-image src="{{itemInfo.image}}" alt="Photo of product">
+    <p>{{itemInfo.info}}</p>
+  </mat-drawer>
+</mat-drawer-container>

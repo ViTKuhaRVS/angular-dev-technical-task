@@ -1,0 +1,25 @@
+<div class="filter-component">
+  <section class="types-section">
+  <span>
+    <mat-checkbox *ngFor="let type of checkboxConfigs"
+                  [checked]="type.selected"
+                  (change)="onCheck($event, type.title)">
+          {{type.title}}
+        </mat-checkbox>
+  </span>
+  </section>
+  <div class="slider-label-container">
+    <label class="slider-min-label">{{minPriceRange}}</label>
+    <label class="slider-max-label">{{maxPriceRange}}</label>
+  </div>
+  <mat-slider class="slider"
+              [min]="0"
+              [max]="15000">
+    <input [(ngModel)]="minPriceRange" matSliderStartThumb>
+    <input [(ngModel)]="maxPriceRange" matSliderEndThumb>
+  </mat-slider>
+
+  <button mat-button
+          (click)="confirmFilter.emit({selectedTypes, minPriceRange, maxPriceRange})"
+  >Confirm</button>
+</div>
